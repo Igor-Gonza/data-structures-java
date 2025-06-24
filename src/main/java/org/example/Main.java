@@ -1,207 +1,52 @@
 package org.example;
 
-import org.example.data_structures.CircularDoublyLinkedList;
-import org.example.data_structures.CircularSinglyLinkedList;
-import org.example.data_structures.DoublyLinkedList;
-import org.example.data_structures.SinglyLinkedList;
-
+import org.example.applications.Polynomial;
 
 public class Main {
   public static void main(String[] args) {
-    System.out.println("  #---- SINGLY ----#");
-    singlyLinkedListTest();
+    Polynomial teste1 = new Polynomial();
+    Polynomial teste2 = new Polynomial();
 
-    System.out.println("  #---- DOUBLY ----#");
-    doublyLinkedListTest();
+    teste1.add(23, 6);
+    teste1.add(2, 4);
+    teste1.add(12, 3);
 
-    System.out.println("  #---- CIRCULAR SINGLY ----#");
-    circularSinglyLinkedListTest();
+    teste2.add(12, 6);
+    teste2.add(7, 3);
+    teste2.add(25, 5);
+    teste2.add(43, 0);
 
-    System.out.println("  #---- CIRCULAR DOUBLY ----#");
-    circularDoublyLinkedListTest();
-  }
+    Polynomial teste3 = teste1.add(teste2);
 
-  private static void singlyLinkedListTest() {
-    SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
+    System.out.println("Sum");
+    teste1.print();
+    System.out.println();
+    teste2.print();
+    System.out.println();
+    teste3.print();
+    System.out.println();
+    System.out.println();
 
-    list.deleteFirst();
-    list.deleteLast();
+    Polynomial teste4 = new Polynomial();
+    Polynomial teste5 = new Polynomial();
 
-    list.addToEnd(10);
-    list.addToEnd(20);
-    list.addToEnd(30);
-    list.addToEnd(40);
-    list.addToEnd(50);
+    teste4.add(4, 3);
+    teste4.add(6, 6);
+    teste4.add(8, 1);
 
-    list.addToBeginning(8);
-    list.addToBeginning(6);
-    list.addToBeginning(4);
-    list.addToBeginning(2);
-    list.addToBeginning(1);
+    teste5.add(7, 3);
+    teste5.add(3, 2);
+    teste5.add(2, 1);
+    teste5.add(1, 0);
 
-    list.deleteFirst();
-    list.deleteFirst();
-    list.deleteFirst();
+    Polynomial teste6 = teste4.multiply(teste5);
 
-    list.deleteLast();
-    list.deleteLast();
-    list.deleteLast();
-
-    list.revertList();
-
-    list.addToIndex(0, 30);
-    list.addToIndex(4, 7);
-    list.addToIndex(6, 5);
-
-    list.deleteFromIndex(0);
-    list.deleteFromIndex(5);
-    list.deleteFromIndex(3);
-
-    list.clear();
-
-    System.out.printf(" -> The first is %d\n", list.getFirst());
-    System.out.printf(" -> The last is %d\n", list.getLast());
-    System.out.printf(" -> The list has %d elements\n\n", list.getSize());
-  }
-
-  private static void doublyLinkedListTest() {
-    DoublyLinkedList<Integer> list = new DoublyLinkedList<>();
-
-    list.deleteFirst();
-    list.deleteLast();
-
-    list.addToEnd(10);
-    list.addToEnd(20);
-    list.addToEnd(30);
-    list.addToEnd(40);
-    list.addToEnd(50);
-
-    list.addToBeginning(8);
-    list.addToBeginning(6);
-    list.addToBeginning(4);
-    list.addToBeginning(2);
-    list.addToBeginning(1);
-
-    list.deleteFirst();
-    list.deleteFirst();
-    list.deleteFirst();
-
-    list.deleteLast();
-    list.deleteLast();
-    list.deleteLast();
-
-    list.revertList();
-
-    list.addAfterIndex(3, 4);
-    list.addAfterIndex(2, 7);
-    list.addAfterIndex(0, 15);
-
-    list.addBeforeIndex(6, 5);
-    list.addBeforeIndex(3, 9);
-    list.addBeforeIndex(0, 25);
-
-    list.deleteFromIndex(2);
-    list.deleteFromIndex(0);
-    list.deleteFromIndex(7);
-    list.deleteFromIndex(5);
-    list.deleteFromIndex(3);
-
-    list.clear();
-
-    System.out.printf(" -> The first is %d\n", list.getFirst());
-    System.out.printf(" -> The last is %d\n", list.getLast());
-    System.out.printf(" -> The list has %d elements\n\n", list.getSize());
-  }
-
-  private static void circularSinglyLinkedListTest() {
-    CircularSinglyLinkedList<Integer> list = new CircularSinglyLinkedList<>();
-
-    list.deleteFirst();
-    list.deleteLast();
-
-    list.addToEnd(10);
-    list.addToEnd(20);
-    list.addToEnd(30);
-    list.addToEnd(40);
-    list.addToEnd(50);
-
-    list.addToBeginning(8);
-    list.addToBeginning(6);
-    list.addToBeginning(4);
-    list.addToBeginning(2);
-    list.addToBeginning(1);
-
-    list.deleteFirst();
-    list.deleteFirst();
-    list.deleteFirst();
-
-    list.deleteLast();
-    list.deleteLast();
-    list.deleteLast();
-
-    list.revertList();
-
-    list.addToIndex(0, 30);
-    list.addToIndex(4, 7);
-    list.addToIndex(6, 5);
-
-    list.deleteFromIndex(0);
-    list.deleteFromIndex(5);
-    list.deleteFromIndex(3);
-
-    list.clear();
-
-    System.out.printf(" -> The first is %d\n", list.getFirst());
-    System.out.printf(" -> The last is %d\n", list.getLast());
-    System.out.printf(" -> The list has %d elements\n\n", list.getSize());
-  }
-
-  private static void circularDoublyLinkedListTest() {
-    CircularDoublyLinkedList<Integer> list = new CircularDoublyLinkedList<>();
-
-    list.deleteFirst();
-    list.deleteLast();
-
-    list.addToEnd(10);
-    list.addToEnd(20);
-    list.addToEnd(30);
-    list.addToEnd(40);
-    list.addToEnd(50);
-
-    list.addToBeginning(8);
-    list.addToBeginning(6);
-    list.addToBeginning(4);
-    list.addToBeginning(2);
-    list.addToBeginning(1);
-
-    list.deleteFirst();
-    list.deleteFirst();
-    list.deleteFirst();
-
-    list.deleteLast();
-    list.deleteLast();
-    list.deleteLast();
-
-    list.revertList();
-
-    list.addAfterIndex(3, 4);
-    list.addAfterIndex(2, 7);
-    list.addAfterIndex(0, 15);
-
-    list.addBeforeIndex(6, 5);
-    list.addBeforeIndex(3, 9);
-    list.addBeforeIndex(0, 25);
-
-    list.deleteFromIndex(2);
-    list.deleteFromIndex(0);
-    list.deleteFromIndex(7);
-    list.deleteFromIndex(5);
-    list.deleteFromIndex(3);
-
-    list.clear();
-
-    System.out.printf(" -> The first is %d\n", list.getFirst());
-    System.out.printf(" -> The last is %d\n", list.getLast());
-    System.out.printf(" -> The list has %d elements\n\n", list.getSize());
+    System.out.println("Product");
+    teste4.print();
+    System.out.println();
+    teste5.print();
+    System.out.println();
+    teste6.print();
+    System.out.println();
   }
 }
